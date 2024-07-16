@@ -1,0 +1,576 @@
+* {
+    margin: 0;
+}
+
+#loading-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading-gif {
+    width: 300px; /* GIF 크기 조정 */
+    height: 300px; /* GIF 크기 조정 */
+}
+
+
+/* HEADER */
+.header {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	width: 100%;
+	height: 54px;
+	background: #fff;
+	z-index: 2;
+}
+.header h1 {
+	display: flex;
+	min-height: 54px;
+	padding: 0 15px;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: left;
+    align-items: center;
+    color: #6B53E8;
+}
+.header .btnBack {
+	position: absolute;
+	top: 12px;
+	left: 8px;
+	width: 30px;
+	height: 30px;
+	background: url("../image/btn-arrow_back.svg");
+    background-position: center;
+	font-size: 0;
+}
+.header .btnHome {
+	position: absolute;
+	top: 12px;
+	right: 18px;
+	width: 30px;
+	height: 30px;
+	background: url("../image/btn-home.svg");
+    background-position: center;
+	font-size: 0;
+}
+
+/* CONTENTS */
+.contents {
+    padding: 16px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.searchArea {
+    display: block;
+    width: 100%;
+    height: 44px;
+    padding: 11px 16px;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    transition: border-color ease-in-out 0.15s;
+    outline: none;
+    background-color: #f6f6f6;
+}
+.searchArea::placeholder {
+    color: #c9c9c9; 
+}
+.search {
+    height: 48px;
+    position: relative;
+    margin-bottom: 16px;
+}
+.btnSearch {
+    top: 12px;
+    background-image: url(../image/lni_lni-search-alt.svg);
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0;
+    border: none;
+}
+.subMenu {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+}
+.surveyArea {
+    display: flex;
+    background-color: #E3DEFF;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    min-height: 120px;
+    align-items: center;
+    
+}
+
+.customerArea {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    padding: 20px;
+    width: 50%;
+    border-radius: 6px;
+    min-height: 80px;
+    align-items: center;
+}
+.recommendArea {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    padding: 20px;
+    width: 50%;
+    border-radius: 6px;
+    min-height: 80px;
+    align-items: center;
+}
+.surveyIco {
+    background-color: #fff;
+    /* border-radius: 50%; */
+    width: 80px;
+    height: 80px;
+    margin-right: 24px;
+    background: url(../image/outline_poll_black_36dp.png);
+    background-size: contain;
+}
+.customerIco {
+    background-color: #c9c9c9;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    background: url(../image/groups_FILL0_wght400_GRAD0_opsz48.png);
+    background-size: contain;
+}
+.recommendIco {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+    background: url(../image/recommend_FILL0_wght400_GRAD0_opsz48.png);
+    background-size: contain;
+}
+
+.insureIco1 {
+    background-color: white;
+    background: url(../image/car.png);
+    background-size: contain;
+}
+.insureIco2 {
+    background-color: white;
+    background: url(../image/teeth.png);
+    background-size: contain;
+}
+.insureIco3 {
+    background-color: white;
+    background: url(../image/death.png);
+    background-size: contain;
+}
+.insureIco4 {
+    background-color: white;
+    background: url(../image/child.png);
+    background-size: contain;
+}
+.insureIco5 {
+    background-color: white;
+    background: url(../image/trip.png);
+    background-size: contain;
+}
+.insureIco6 {
+    background-color: white;
+    background: url(../image/cancer.png);
+    background-size: contain;
+}
+
+
+.recommBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #E3DEFF;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    min-height: 80px;
+    padding: 16px;
+}
+.recommBtn > div {
+    width: 46px;
+    height: 46px;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 12px;
+}
+
+
+
+.simg {
+    width: 40px;
+    padding-right: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.bimg {
+    width: 55px;
+    padding-right: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* 버튼 스타일 */
+
+.btnSend {
+    padding: 8px 16px;
+    background-color: #fff;
+    color: #6B53E8;
+    position: absolute;
+    right: 16px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.btn {
+    background-color: #6B53E8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-cl ose {
+    background-color: #ccc;
+}
+
+.btn-back {
+    position: fixed;
+    bottom: 20px;
+    left: 330px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    }
+
+.btn-back img {
+    width: 40px; /* 이미지의 크기 조정 */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+.search input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.summary {
+    margin-top: 20px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.semiheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    /* background-color: #f5f5f5; */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.semiheader input[type="text"],
+.semiheader input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.semiheader button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.semiheader button:hover {
+    background-color: #0056b3;
+}
+
+.btnSubmit {
+    padding: 8px 16px;
+    /* background-color: black; */
+    color: #6B53E8;
+    position: absolute;
+    right: 16px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+
+nav {
+    background-color: #333;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+nav li {
+    margin: 0;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+.customerList {
+    padding: 0;
+}
+.customerList li {
+background-color: #E3DEFF; 
+height: 90px; /* 조정된 높이 */
+border-radius: 20px; /* 조정된 테두리 반지름 */
+display: flex;
+align-items: center;
+padding: 16px;
+margin-bottom: 16px;
+position: relative;
+display: flex;
+align-items: center;
+}
+
+.name {
+margin: 0;
+padding: 0;
+position: absolute;
+left: 80px; /* 위치 조정 */
+font-size: 18px; /* 폰트 크기 조정 */
+}
+
+ul span {
+margin: 0;
+padding: 0;
+position: absolute;
+left: 130px;
+color: gray;
+font-size: 14px; /* 폰트 크기 조정 */
+}
+
+ul img {
+margin: 0;
+padding: 0;
+position: absolute;
+left: 20px; /* 위치 조정 */
+width: 40px; /* 이미지 크기 조정 */
+height: 40px;
+border-radius: 50%; /* 이미지를 원형으로 */
+}
+.info-box {
+    position: relative;
+    width: 90%;
+    height: 80px;
+    border-radius: 20px;
+    margin: 10px auto;
+    box-shadow: 5px 5px 10px rgba(0.5, 0.5, 0.5, 0.5);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.info-title {
+    font-size: 14px;
+    color: #6B53E8;
+    margin-bottom: 5px;
+}
+.info-description {
+    font-size: 12px;
+    color: black;
+}
+
+#loading-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading-gif {
+    width: 300px; /* GIF 크기 조정 */
+    height: 300px; /* GIF 크기 조정 */
+}
+.center-align {
+    text-align: center;
+}
+#성별 {
+    margin-left: -90px;
+    margin-top: 100px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 20px;
+}    
+#운전 {
+    margin-left: 60px;
+    margin-top: 190px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}   
+#음주 {
+    margin-left: 60px;
+    margin-top: 230px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}  
+#자녀 {
+    margin-left: 60px;
+    margin-top: 310px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}  
+#흡연 {
+    margin-left: 60px;
+    margin-top: 270px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}  
+#사망보험 {
+    margin-left: 180px;
+    margin-top: 530px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}  
+#운전자보험 {
+    margin-left: 180px;
+    margin-top: 570px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}  
+#치아보험 {
+    margin-left: 180px;
+    margin-top: 490px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}  
+#암보험 {
+    margin-left: 180px;
+    margin-top: 370px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}  
+#자녀보험 {
+    margin-left: 180px;
+    margin-top: 410px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+} 
+#여행자보험 {
+    margin-left: 180px;
+    margin-top: 450px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 17px;
+}  
+#nameSpan {
+    margin-left: -90px;
+    margin-top: 23px;
+    color: #5C6875; 
+    font-size: 40px;
+    
+}
+#age {
+    margin-left: -35px;
+    margin-top: 100px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+#phoneSpan {
+    margin-left: -90px;
+    margin-top: 130px;
+    color: #5C6875; 
+    font-weight: bold;
+    font-size: 20px;
+}    
+#valuesList li {
+    list-style: none; /* 마커를 없애는 스타일 */
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>My Webpage</title>
+</head>
+<body>
+    <div class="header">
+        <h1>GA영업비서</h1>
+    </div>
+
+    <div class="contents">
+        <div class="search">
+            <input type="search" id="searchTerm" class="searchArea" placeholder="검색어를 입력해주세요">
+            <button class="btnSearch" onclick="search()">검색</button>
+        </div>
+            <div class="surveyArea" onclick="cncjs()">
+                
+                
+                <div class="surveyIco">
+                    
+                </div>
+                
+                <span style="margin-left: 45px; font-weight: bold;">설문리스트</span>
+            </div>
+            <div class="subMenu">
+                <div class="customerArea" onclick="customer()">
+                    
+                    <div class="customerIco"></div>
+                    
+                    <span style=" font-weight: 700;">고객관리</span>
+                </div>
+                <div class="recommendArea" onclick="recomm()">
+                    
+                    <div class="recommendIco"></div>
+                    
+                    <span style=" font-weight: 700;">보험추천</span>
+                </div>
+                
+            </div>
+    
+    </div>
+
+</body>
+<script>
+    // "고객관리" 버튼 클릭 시 고객 관리 페이지로 이동
+    function customer() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/customer.html";
+    }
+
+    // "보험추천" 버튼 클릭 시 보험 추천 페이지로 이동
+    function recomm() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/recom.html"
+    }
+
+    // 검색 버튼 클릭 시 검색어를 이용하여 검색 결과 페이지로 이동
+    function search() {
+        const searchTerm = document.getElementById("searchTerm").value;
+        window.location.href = `rere.html?search=${encodeURIComponent(searchTerm)}`;
+        document.getElementById("searchTerm").value = "";
+    }
+
+    // "설문리스트" 버튼 클릭 시 설문 페이지로 이동
+    function cncjs() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/cncjs.html"
+    }
+
+    // 서버에서 검색 결과 데이터 가져오는 fetch 요청
+    fetch(`https://9vod8uhybl.execute-api.us-east-2.amazonaws.com/dev`)
+    .then(response => response.json())
+    .then(data => {
+        const results = data.results; // 이 부분은 응답 데이터 구조에 맞게 수정
+        updateSearchResults(results);
+    })
+    .catch(error => {
+        console.error('검색 결과 가져오는 중 오류 발생:', error);
+    });
+
+    // 검색 결과를 업데이트하는 함수
+    function updateSearchResults(results) {
+        var valuesList = document.getElementById("valuesList");
+        valuesList.innerHTML = ""; // 기존 목록 초기화
+
+        results.forEach(customer => {
+            var listItem = document.createElement("li");
+            var nameElement = document.createElement("span");
+            nameElement.textContent = customer.name;
+            var phoneElement = document.createElement("span");
+            phoneElement.textContent = customer.phone;
+            listItem.appendChild(nameElement);
+            listItem.appendChild(phoneElement);
+            valuesList.appendChild(listItem);
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>My Webpage</title>
+</head>
+<body>
+    <div class="header">
+        <span class="btnBack" onclick="goBack()">이전</span>
+        <a href="https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/index.html" class="btnHome">Home</a>
+    </div>
+    <div class="contents">
+        <div class="recommBtn" onclick="car()">
+            
+            <div class="insureIco1"></div>
+            
+            <span style="font-weight: 700;">운전자보험</span>
+        </div>
+        <div class="recommBtn" onclick="teeth()">
+           
+            <div class="insureIco2"></div>
+            <span style="font-weight: 700;">치아보험</span>
+        </div>
+        <div class="recommBtn" onclick="death()">
+            
+            <div class="insureIco3"></div>
+            <span style="font-weight: 700;">사망보험</span>
+        </div>
+        <div class="recommBtn" onclick="child()">
+            
+            <div class="insureIco4"></div>
+            <span style="font-weight: 700;">자녀보험</span>
+        </div>
+        <div class="recommBtn" onclick="trip()">
+            
+            <div class="insureIco5"></div>
+            <span style="font-weight: 700;">여행자보험</span>
+        </div>
+        <div class="recommBtn" onclick="cancer()">
+            
+            <div class="insureIco6"></div>
+            <span style="font-weight: 700;">암보험</span>
+        </div>
+    </div>
+ 
+
+        
+        
+
+
+</body>
+<script>
+    // "홈" 버튼 클릭 시 홈 페이지로 이동
+    function home() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/index.html";
+    }
+
+    // "고객관리" 버튼 클릭 시 고객 관리 페이지로 이동
+    function customer() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/customer.html";
+    }
+
+    // "운전자보험" 버튼 클릭 시 운전자 보험 페이지로 이동
+    function car() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/car.html";
+    }
+
+    // "사망보험" 버튼 클릭 시 사망 보험 페이지로 이동
+    function death() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/death.html";
+    }
+
+    // "암보험" 버튼 클릭 시 암 보험 페이지로 이동
+    function cancer() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/cancer.html";
+    }
+
+    // "치아보험" 버튼 클릭 시 치아 보험 페이지로 이동
+    function teeth() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/teeth.html";
+    }
+
+    // "여행자보험" 버튼 클릭 시 여행자 보험 페이지로 이동
+    function trip() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/trip.html";
+    }
+
+    // "자녀보험" 버튼 클릭 시 자녀 보험 페이지로 이동
+    function child() {
+        window.location.href = "https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/child.html";
+    }
+
+    // "이전" 버튼 클릭 시 이전 페이지로 이동
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</html>

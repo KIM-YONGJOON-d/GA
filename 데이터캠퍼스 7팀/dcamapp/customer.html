@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객 관리 시스템</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <span class="btnBack" onclick="goBack()">이전</span>
+        <a href="https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/index.html" class="btnHome">Home</a>
+    </div>
+    <form id="surveyForm">
+        <div class="semiheader">
+            <div style="width: 50%;">
+                <input type="text" id="nameInput" name="name" placeholder="이름" required>
+                <input type="text" id="phoneInput" name="phone" placeholder="전화번호" required><br>
+            </div>
+            <button type="submit" class="btnSubmit">추가하기</button>
+        </div>
+    </form>
+    <div class="contents">
+        <div class="summary">
+        <span style="font-weight: bold; margin-left: 5px;  " >고객 수:</span> <span id="customerCount">0</span>
+        </div>
+        <ul class="customerList" id="valuesList">
+
+        </ul>
+        <button class="btn btn-back" onclick="goBack()">
+    </div>
+    <div id="loading-screen" class="loading-screen">
+        <img src="./image/로딩중.gif" alt="로딩 중..." class="loading-gif">
+    </div>
+    <script src="customer.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 결과</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="header">
+        <span class="btnBack" onclick="goBack()">이전</span>
+        <a href="https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/index.html" class="btnHome">Home</a>
+    </div>
+    <div class="header">
+        <h1>검색 고객</h1>
+    </div>
+        <ul class="customerList" id="valuesList">
+        </ul>
+    </div>
+    <button class="btn btn-back" onclick="goBack()">뒤로가기</button>
+</body>
+<div id="loading-screen" class="loading-screen">
+    <img src="./image/로딩중.gif" alt="로딩 중..." class="loading-gif">
+</div>
+<script>
+    // 로딩 화면을 보여주는 함수
+    function showLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.display = 'flex';
+    }
+
+    // 로딩 화면을 숨기는 함수
+    function hideLoadingScreen() {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.display = 'none';
+    }
+
+    // 데이터 로딩 시작 시 로딩 화면 표시
+    showLoadingScreen();
+
+    // 서버에서 데이터 가져와 검색 결과를 표시하는 함수
+    fetch(`https://9vod8uhybl.execute-api.us-east-2.amazonaws.com/dev`)
+        .then(response => response.json()) // JSON 응답을 파싱하여 객체로 변환
+        .then(data => {
+            hideLoadingScreen();
+            const results = JSON.parse(data.body); // body 속성의 값을 JSON으로 변환
+            updateSearchResults(results);
+        })
+        .catch(error => {
+            console.error('검색 결과 가져오는 중 오류 발생:', error);
+        });
+
+    // 검색 결과를 업데이트하는 함수
+    function updateSearchResults(results) {
+        const valuesList = document.getElementById("valuesList");
+        valuesList.innerHTML = ""; // 기존 목록 초기화
+
+        if (!Array.isArray(results)) {
+            console.error('검색 결과 데이터 형식 오류: 배열이 아닌 형태입니다.');
+            return;
+        }
+
+        // URL에서 검색어 파라미터 가져오기
+        const searchTerm = decodeURIComponent(window.location.search.replace("?search=", ""));
+
+        // 검색 결과 데이터 필터링
+        const filteredData = results.filter(customer => customer.name && customer.name.includes(searchTerm));
+
+        // 검색 결과 데이터를 목록으로 표시
+        filteredData.forEach(customer => {
+            const listItem = document.createElement("li");
+            const imgElement = document.createElement("img");
+            imgElement.src ="./image/user.jpg"
+            imgElement.style.width = "40px";
+            imgElement.style.height = "40px";
+            imgElement.style.borderRadius = "50%";
+            listItem.appendChild(imgElement);
+
+            const customerElement = document.createElement("div");
+            const nameElement = document.createElement("span");
+            nameElement.textContent = customer.name;
+            nameElement.style.fontWeight = "bold";
+            nameElement.style.fontSize = "1.1em";
+            nameElement.style.cursor = "pointer";
+            nameElement.style.marginTop = "-15px";
+            nameElement.style.color = "black";
+            
+            // 클릭 시 고객 상세 페이지로 이동
+            listItem.addEventListener("click", function (event) {
+                        event.stopPropagation();
+                        window.location.href = `https://test7team.s3.ap-northeast-2.amazonaws.com/dcamapp/detail.html?code=${encodeURIComponent(customer.code)}`;
+                    });
+            
+            customerElement.appendChild(nameElement);
+
+            const phoneElement = document.createElement("span");
+            phoneElement.textContent = customer.phone;
+            phoneElement.style.marginTop = "10px";
+            phoneElement.style.marginLeft = "2px";
+            customerElement.appendChild(phoneElement);
+
+            listItem.appendChild(customerElement);
+            valuesList.appendChild(listItem);
+        });
+    }
+
+    // "이전" 버튼 클릭 시 이전 페이지로 이동
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>보험 설문조사</title>
+    <link rel="stylesheet" href="https://test7team.s3.ap-northeast-2.amazonaws.com/survey.css">
+    <link rel="stylesheet" type="text/css" href="survey.css">
+</head>
+
+<body>
+    <form id="surveyForm">
+        <h1>설문조사</h1>
+        <!-- 설문조사 폼 내용 -->
+        <!-- 각 질문 섹션에 이전 버튼과 질문 추가 -->
+        <div id="private" class="answer">
+            <!-- 이전 버튼을 누를 때 이동할 이전 화면 변수 -->
+            <input type="hidden" id="previousScreen" value="private">
+            <img class="btnBackImage" src="btn-arrow_back.svg" onclick="goBack()">
+
+            <div class="answer">
+                <label class="question">* 고유코드</label><br><br>
+                <input type="text" name="code" required>
+            </div>
+
+            <div class="answer">
+                <label class="question">* 나이</label><br><br>
+                <input type="number" name="age" required>
+            </div>
+
+            <div class="answer">
+                <label class="question">* 성별</label> <br><br>
+                <label class="choiceBtn">
+                    <input type="radio" name="성별" value="남성" required>
+                    <p>남성</p>
+                </label>
+                <label class="choiceBtn">
+                    <input type="radio" name="성별" value="여성" required>
+                    <p>여성</p>
+                </label>
+            </div>
+
+            <button type="radio" class="submit-btn" id="z">다음</button>
+        </div>
+
+        <!-- 설문조사 준비 -->
+
+        <!-- 설문조사 폼 내용 -->
+
+        <div id="question1" class="answer" style="display: none;">
+            <label class="question question-label"> 1. 렌트한 차를 반납할때 작은 흠집이라도 있을까 불안하신가요?
+                <img class="btnBackImage" id="b1" src="btn-arrow_back.svg">
+            </label><br><br>
+            <div class="radio-group">
+                <label for="q1" class="o-x-button">O
+                    <input type="radio" id="q1" name="렌트반납" value="O" required>
+                </label>
+                <label for="q2" class="o-x-button">X
+                    <input type="radio" id="q2" name="렌트반납" value="X" required>
+                </label>
+            </div>
+        </div>
+
+        <div id="question2" class="answer" style="display: none;">
+            <label class="question question-label">2. 당신은 운전을 일주일에 4일 이상 하시나요?</label><br><br>
+            <img class="btnBackImage" id="b2" src="btn-arrow_back.svg">
+            <div class="radio-group">
+                <label for="w1" class="o-x-button">O
+                    <input type="radio" id="w1" name="운전일수" value="O" required>
+                </label>
+
+                <label for="w2" class="o-x-button">X
+                    <input type="radio" id="w2" name="운전일수" value="X" required>
+                </label>
+            </div>
+        </div>
+
+        <!-- 세 번째 질문 -->
+        <div id="question3" class="answer" style="display: none;">
+            <label class="question question-label"> 3. 친구들과 여행을 가서 차 렌트를 할 때 당신이 운전하는 편인가요?</label><br><br>
+            <img class="btnBackImage" id="b3" src="btn-arrow_back.svg">
+            <div class="radio-group">
+                <label for="e1" class="o-x-button">O
+                    <input type="radio" id="e1" name="렌트운전" value="O" required>
+                </label>
+
+                <label for="e2" class="o-x-button">X
+                    <input type="radio" id="e2" name="렌트운전" value="X" required>
+                </label>
+            </div>
+        </div>
+
+        <!-- 네 번째 질문 -->
+        <div id="question4" class="answer" style="display: none;">
+            <label class="question question-label"> 4. 당신은 운전 중 음악을 듣는 등 미디어를 이용하시나요?</label><br><br>
+            <img class="btnBackImage" id="b4" src="btn-arrow_back.svg" onclick="goBack()">
+            <div class="radio-group">
+                <label for="r1" class="o-x-button">O
+                    <input type="radio" id="r1" name="4" value="O" required>
+                </label>
+
+                <label for="r2" class="o-x-button">X
+                    <input type="radio" id="r2" name="4" value="X" required>
+                </label>
+            </div>
+        </div>
+
+        <!-- 다섯 번째 질문 -->
+        <div id="question5" class="answer" style="display: none;">
+            <label class="question question-label"> 5. 당신은 원하는 차 받기 vs 평생 무료 택시 무엇이 더 좋나요?</label><br><br>
+            <img class="btnBackImage" id="b5" src="btn-arrow_back.svg">
+            <div class="radio-group">
+                <label for="t1" class="o-x-button">차
+                    <input type="radio" id="t1" name="9" value="O" required>
+                </label>
+
+                <label for="t2" class="o-x-button">택시
+                    <input type="radio" id="t2" name="9" value="X" required>
+                </label>
+            </div>
+
+        </div>
+
+        <div id="submitpage" class="answer" style="display: none;">
+            <img class="btnBackImage" id="b6" src="btn-arrow_back.svg">
+            <label>
+                <button type="submit" id="s" class="submit-btn">제출</button>
+            </label>
+
+        </div>
+
+
+    </form>
+    <script src="check.js"></script>
+    <script src="godb.js"></script>
+</body>
+
+</html>
